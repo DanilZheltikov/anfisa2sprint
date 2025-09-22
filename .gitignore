@@ -114,6 +114,10 @@ venv.bak/
 .spyderproject
 .spyproject
 
+# SQL
+.sqlite3
+.sqlite
+
 # Rope project settings
 .ropeproject
 
