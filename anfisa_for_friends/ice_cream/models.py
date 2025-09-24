@@ -65,10 +65,17 @@ class IceCream(PublishedModel):
     )
     toppings = models.ManyToManyField(Topping, verbose_name='Топпинг')
     is_on_main = models.BooleanField('На главную', default=False)
+    output_order = models.PositiveSmallIntegerField(
+        'Порядок отображения',
+        default=100
+    )
+    price = models.DecimalField(max_digits=3, decimal_places=2)
 
     class Meta:
         verbose_name = 'мороженое'
         verbose_name_plural = 'Мороженое'
-
+        # а если у нескольких объектов значения output_order совпадают-- 
+        # сортируем по title.
+        ordering = ('output_order', 'title')
     def __str__(self):
         return self.title
